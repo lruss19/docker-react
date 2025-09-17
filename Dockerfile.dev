@@ -1,0 +1,12 @@
+FROM node:lts-alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+
+RUN npm install
+
+#leave the copy command in for future reference (not needed in dev as bind mount used)
+COPY . .
+
+CMD ["npm", "run", "start"]
